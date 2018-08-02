@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import org.bson.Document;
 
-public class CreateRechnung {
+public class CreateBill {
     
     public void createRechnung() {
 

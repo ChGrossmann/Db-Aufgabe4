@@ -1,74 +1,236 @@
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="ch.teko.grossmac.db4.a4.beans.Product"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Artikel auflisten</title>
+        <title>Rechnung erfassen</title>
     </head>
 
     <body>
-        <table>
-            <tr>
-                <th align="left" valign="top" width="300">
-            <h3>Menü</h3>
-            <ol>
-                <ol>
-                    <li><a href="index.jsp">Artikel auflisten</a></li>
-                    <li><a href="showProduct.jsp">Artikel suchen</a></li>
-                    <li><a href="addProduct.jsp">Artikel erfassen</a></li>
-                    
-                </ol>
-            </ol>
-            </th>
-            
-            
-            <th align="center" valign="top" width="800">
-            <h1>Artikel auflisten</h1>
-            
-            <form action="SearchProduct">
-                <input hidden="text" name="search">
-                <input type="submit" value="Suchen">
-            </form>
-            
 
-            <% if (request.getAttribute("Products") != null) {%>
-            <h1>Resultat</h1>
-            <div>
+        <h1 style="color: green">Rechnung erfassen</h1>
 
-                <table border="1">
+        <form action="Absender">
+            <table style="width: 100%">
 
-                    <%  ArrayList<Product> products = (ArrayList) request.getAttribute("Products");
-                        for (Product p : products) {
-                    %>
-                    <tr>
-                        
-                        <th width="70" ><%= p.getProductNumber()%></th>
-                        <th width="200"><%= p.getProductName()%></th>
-                        <th width="30"><%= p.getProductValue()%></th>
-                        <th width="40"><%= p.getProductUnit()%></th>
-                        <th width="30"><%= p.getProductPrice()%></th>
+                <%-- Absender --%>
+                <tr>
+                    <td>
+                        Rechnungsadresse  
+                    </td>
+                    <td colspan="6">
 
-                    </tr>
-                    <%
-                        }
-                    %>
+                        <input type="text" name="rechnung_firma" /><br>
+                        <input type="text" name="rechnung_name" /><br>
+                        <input type="text" name="rechnung_strasse" /><br>
+                        <input type="text" name="rechnung_ort" /><br><br>
 
-                </table>
-                <%
-                    }
-                %>
+                    </td>
+                </tr>
 
-            </div>
-            </th>
-        </tr>
-    </table>
+                <%-- Lieferadresse --%>
+                <tr>
+                    <td>
+                        Lieferadresse
+                    </td>
+                    <td colspan="6">
+                        <input type="text" name="liefer_firma" /><br>
+                        <input type="text" name="liefer_name" /><br>
+                        <input type="text" name="liefer_strasse" /><br>
+                        <input type="text" name="liefer_ort" /><br><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Position
+                    </td>
+                    <td>
+                        Artikelnummer
+                    </td>
+                    <td>
+                        Bezeichnung
+                    </td>
+                    <td>
+                        Farbe
+                    </td>
+                    <td>
+                        Anzahl
+                    </td>
+                    <td>
+                        Einheit
+                    </td>
+                    <td>
+                        Preis
+                    </td>
+                </tr>
+
+                <%-- Positionen --%>
+                <%-- 1 --%>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        <input type="text" name="1_artikelnummer" />
+                    </td>
+                    <td>
+                        <input type="text" name="1_bezeichnung" />
+                    </td>
+                    <td>
+                        <input type="text" name="1_farbe" />
+                    </td>
+                    <td>
+                        <input type="text" name="1_anzahl" />
+                    </td>
+                    <td>
+                        <select name="1_einheit">
+                            <option  value=""></option>
+                            <option  value="stück">Stück</option>
+                            <option value="bund" >Bund</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="1_preis" />
+                    </td>
+                </tr>
+
+                <%-- 2 --%>
+                <tr>
+                    <td>
+                        2
+                    </td>
+                    <td>
+                        <input type="text" name="2_artikelnummer" />
+                    </td>
+                    <td>
+                        <input type="text" name="2_bezeichnung" />
+                    </td>
+                    <td>
+                        <input type="text" name="2_farbe" />
+                    </td>
+                    <td>
+                        <input type="text" name="2_anzahl" />
+                    </td>
+                    <td>
+                        <select name="2_einheit">
+                            <option  value=""></option>
+                            <option  value="stück">Stück</option>
+                            <option value="bund" >Bund</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="2_preis" />
+                    </td>
+                </tr>
+
+                <%-- 3 --%>
+                <tr>
+                    <td>
+                        3
+                    </td>
+                    <td>
+                        <input type="text" name="3_artikelnummer" />
+                    </td>
+                    <td>
+                        <input type="text" name="3_bezeichnung" />
+                    </td>
+                    <td>
+                        <input type="text" name="3_farbe" />
+                    </td>
+                    <td>
+                        <input type="text" name="3_anzahl" />
+                    </td>
+                    <td>
+                        <select name="3_einheit">
+                            <option  value=""></option>
+                            <option  value="stück">Stück</option>
+                            <option value="bund" >Bund</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="3_preis"  />
+                    </td>
+                </tr>
+
+                <%-- 4 --%>
+                <tr>
+                    <td>
+                        4
+                    </td>
+                    <td>
+                        <input type="text" name="4_artikelnummer" />
+                    </td>
+                    <td>
+                        <input type="text" name="4_bezeichnung" />
+                    </td>
+                    <td>
+                        <input type="text" name="4_farbe" />
+                    </td>
+                    <td>
+                        <input type="text" name="4_anzahl" />
+                    </td>
+                    <td>
+                        <select name="4_einheit">
+                            <option  value=""></option>
+                            <option  value="stück">Stück</option>
+                            <option value="bund" >Bund</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="4_preis" />
+                    </td>
+                </tr>
+
+                <%-- 5 --%>
+                <tr>
+                    <td>
+                        5
+                    </td>
+                    <td>
+                        <input type="text" name="5_artikelnummer" />
+                    </td>
+                    <td>
+                        <input type="text" name="5_bezeichnung" />
+                    </td>
+                    <td>
+                        <input type="text" name="5_farbe" />
+                    </td>
+                    <td>
+                        <input type="text" name="5_anzahl" />
+                    </td>
+                    <td>
+                        <select name="5_einheit">
+                            <option  value=""></option>
+                            <option  value="stück">Stück</option>
+                            <option value="bund" >Bund</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="5_preis" />
+                    </td>
+                </tr>
+
+                <%-- Bemerkungen --%>
+                <tr>
+                    <td>
+                        Bemerkung
+                    </td>
+                    <td colspan="6">
+                        <input type="text" name="bemerkung" />
+                    </td>
+                </tr>
 
 
+            </table>
 
-</body>
+            <input type="submit" value="Erfassen" />
+        </form> 
+
+
+    </body>
 </html>
 
 

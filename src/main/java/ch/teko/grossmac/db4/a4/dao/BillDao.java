@@ -116,8 +116,7 @@ public class BillDao {
     public List<Document> newBillDao(String newRechnungsnummer, String newMandat,
             String newKunde, String newLieferadressen, String newPositionen1, 
             String newPositionen2, String newPositionen3, String newPositionen4, 
-            String newPositionen5, String newPositionen6, String newPositionen7, 
-            String newPositionen8, String newPositionen9, String newPositionen10, 
+            String newPositionen5, 
             String newBemerkung) {
 
         conn.connection("bill");
@@ -147,21 +146,6 @@ public class BillDao {
         Document position5Filter = new Document("artikelnummer", newPositionen5);
         Document position5 = connPos.mdbCollection.find(position5Filter).first();
         
-        Document position6Filter = new Document("artikelnummer", newPositionen6);
-        Document position6 = connPos.mdbCollection.find(position6Filter).first();
-        
-        Document position7Filter = new Document("artikelnummer", newPositionen7);
-        Document position7 = connPos.mdbCollection.find(position7Filter).first();
-        
-        Document position8Filter = new Document("artikelnummer", newPositionen8);
-        Document position8 = connPos.mdbCollection.find(position8Filter).first();
-        
-        Document position9Filter = new Document("artikelnummer", newPositionen9);
-        Document position9 = connPos.mdbCollection.find(position9Filter).first();
-        
-        Document position10Filter = new Document("artikelnummer", newPositionen10);
-        Document position10 = connPos.mdbCollection.find(position10Filter).first();
-        
         Document mandatFilter = new Document("firmenname", newMandat);
         Document mandat = connMan.mdbCollection.find(mandatFilter).first();
         
@@ -183,11 +167,6 @@ public class BillDao {
                 .append("positionen3", position3)
                 .append("positionen4", position4)
                 .append("positionen5", position5)
-                .append("positionen6", position6)
-                .append("positionen7", position7)
-                .append("positionen8", position8)
-                .append("positionen9", position9)
-                .append("positionen10", position10)
                 .append("bemerkung", newBemerkung)
                 .append("mwstsatz", 0.8)
                 .append("zahlungsbedingen", "Zahlbar in 30 Tagen, nach erhalt der Rechnung.")

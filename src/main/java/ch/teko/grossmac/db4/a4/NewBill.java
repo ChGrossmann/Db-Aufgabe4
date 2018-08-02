@@ -47,7 +47,8 @@ public class NewBill extends HttpServlet {
         
         // DAO Layer aufrufen
         BillDao dao = new BillDao();
-        List<Document> newBill = dao.newBillDao(newRechnungsnummer, newMandat, newKunde, newLieferadressen, newPositionen1, newPositionen2, newPositionen3, newPositionen4, newPositionen5, newPositionen6, newPositionen7, newPositionen8, newPositionen9, newPositionen10, newBemerkung);
+        List<Document> newBill = dao.newBillDao(newRechnungsnummer, newMandat, newKunde, newLieferadressen, newPositionen1, newPositionen2, newPositionen3, newPositionen4, newPositionen5,
+                newBemerkung);
 
         // Daten an JSP Datei übergeben
         req.setAttribute("Bill", newBill);
