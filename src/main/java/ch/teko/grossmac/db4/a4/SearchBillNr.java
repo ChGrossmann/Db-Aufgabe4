@@ -27,6 +27,7 @@ public class SearchBillNr extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         
+        /*
         // Formdaten übernehmen
         String searchBillNrReq = req.getParameter("searchBillNr");
         
@@ -39,7 +40,7 @@ public class SearchBillNr extends HttpServlet {
         // Daten an JSP Datei übergeben
         req.setAttribute("searchBillNr", searchBillNr);
         req.getRequestDispatcher("searchBill.jsp").forward(req, resp);
-
+*/
 }
 
 }

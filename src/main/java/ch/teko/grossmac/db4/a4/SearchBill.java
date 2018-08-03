@@ -32,7 +32,7 @@ public class SearchBill extends HttpServlet {
      @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        
+     /*   
         // Formdaten übernehmen
 //        String searchBillReq = req.getParameter("searchBillNr");
         
@@ -45,6 +45,6 @@ public class SearchBill extends HttpServlet {
         // Daten an JSP Datei übergeben
         req.setAttribute("searchBill", searchBill);
         req.getRequestDispatcher("searchBill.jsp").forward(req, resp);
-
+*/
 }
 }
