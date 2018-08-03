@@ -22,7 +22,7 @@
                     </td>
                     <td colspan="6">
 
-                        <input type="number" name="rechnungsnummer" /><br>
+                        <input type="number" name="rechnungsnummer" /><br><br>
                         
 
                     </td>
@@ -38,7 +38,7 @@
                         <input type="text" name="rechnung_firma" /><br>
                         <input type="text" name="rechnung_name" /><br>
                         <input type="text" name="rechnung_strasse" /><br>
-                        <input type="number" name="rechnung_plz" /><br><br>
+                        <input type="number" name="rechnung_plz" /><br>
                         <input type="text" name="rechnung_ort" /><br><br>
 
                     </td>
@@ -52,7 +52,7 @@
                         <input type="text" name="kunde_firma" /><br>
                         <input type="text" name="kunde_name" /><br>
                         <input type="text" name="kunde_strasse" /><br>
-                        <input type="number" name="kunde_plz" /><br><br>
+                        <input type="number" name="kunde_plz" /><br>
                         <input type="text" name="kunde_ort" /><br><br>
                     </td>
                 </tr>
@@ -66,7 +66,7 @@
                         <input type="text" name="liefer_firma" /><br>
                         <input type="text" name="liefer_name" /><br>
                         <input type="text" name="liefer_strasse" /><br>
-                        <input type="number" name="liefer_plz" /><br><br>
+                        <input type="number" name="liefer_plz" /><br>
                         <input type="text" name="liefer_ort" /><br><br>
                     </td>
                 </tr>

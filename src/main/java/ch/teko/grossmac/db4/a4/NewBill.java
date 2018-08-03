@@ -107,7 +107,7 @@ public class NewBill extends HttpServlet {
 
         // Daten an JSP Datei übergeben
         req.setAttribute("Bill", newBill);
-        req.getRequestDispatcher("createBill.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
 
 }
 }

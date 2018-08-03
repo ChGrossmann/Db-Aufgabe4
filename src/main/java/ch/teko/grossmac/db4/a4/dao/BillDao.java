@@ -152,7 +152,7 @@ public class BillDao {
                  liefer_strasse, 
                  liefer_plz, 
                  liefer_ort));
-        bill.append("position1", erstellePositionen( new_1_artikelnummer, 
+        bill.append("positionen", erstellePositionen( new_1_artikelnummer, 
                  new_1_bezeichnung, 
                  new_1_farbe, 
                  new_1_anzahl, 
@@ -246,7 +246,7 @@ public class BillDao {
     }
 
     private Document erstelleArtikel(int artikelNr, String beschreibung, 
-            String farbe, String einheit, double einzelpreis, int menge) {
+            String farbe, int menge, String einheit, double einzelpreis) {
 
         Document doc = new Document();
         doc.append("artikelNr", artikelNr)
@@ -296,12 +296,11 @@ public class BillDao {
                 double new_5_preis) {
 
         ArrayList<Document> positionen = new ArrayList<>();
-        positionen.add(erstelleArtikel(33701, "Kandelaber-Primel, rot", "STCK", 4.50, 3));
-        positionen.add(erstelleArtikel(57026, "Lupine blau", "STCK", 1.50, 1));
-        positionen.add(erstelleArtikel(77005, "Sonnenblume, gefüllt", "STCK", 0.90, 7));
-        positionen.add(erstelleArtikel(80967, "Bergahorn", "STCK", 7.50, 1));
-        positionen.add(erstelleArtikel(33463, "Aurikel", "STCK", 5.60, 5));
-        positionen.add(erstelleArtikel(80956, "Skabiose, blau", "STCK", 3.80, 4));
+        positionen.add(erstelleArtikel(new_1_artikelnummer, new_1_bezeichnung, new_1_farbe, new_1_anzahl, new_1_einheit, new_1_preis));
+        positionen.add(erstelleArtikel(new_2_artikelnummer, new_2_bezeichnung, new_2_farbe, new_2_anzahl, new_2_einheit, new_2_preis));
+        positionen.add(erstelleArtikel(new_3_artikelnummer, new_3_bezeichnung, new_3_farbe, new_3_anzahl, new_3_einheit, new_3_preis));
+        positionen.add(erstelleArtikel(new_4_artikelnummer, new_4_bezeichnung, new_4_farbe, new_4_anzahl, new_4_einheit, new_4_preis));
+        positionen.add(erstelleArtikel(new_5_artikelnummer, new_5_bezeichnung, new_5_farbe, new_5_anzahl, new_5_einheit, new_5_preis));
         
 
         return positionen;
