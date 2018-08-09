@@ -4,6 +4,8 @@
     Author     : ch.grossmann
 --%>
 
+<%@page import="org.bson.Document"%>
+<%@page import="ch.teko.grossmac.db4.a4.beans.Bill"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,14 +16,15 @@
 
 
     <body>
-
+        <%--<% if (request.getAttribute("Bill") != null) {%> <%= %>--%>
+<%  Bill bills = (Bill) request.getAttribute("Bill");%>   
 
         <div style="background-color: white; font-size: 72.5%; font-family: Helvetica, sans-serif; float:left; ">
             <table cellspacing="0" cellpadding="0" border="0" width="100%" style=" border: 1px solid #000" >
                 <tr>
                     <%-- Titelbild der Firma --%>
                     <td  width="25%" align="left"><img src="/Aufgabe4_Rechnungen/images/Logo.png" width="200" height="200" alt="Bild wurde nicht gefunden"><br><br></td>
-                    <td  width="47%" align="left" style="font-size: 400%; color: green">The Power of Seeds</td>
+                    <td  width="47%" align="left" style="font-size: 400%; color: green"><%= bills.getMandant().get("firmenname") %></td>
                     <td width="3%" >&nbsp;</td>
                     <td width="25%">&nbsp;</td>
                     
@@ -34,11 +37,14 @@
                 </tr> 
                 <tr>
                     <%-- Adresse der Firma --%>
-                    <td><span style="font-size: 65%;text-decoration: underline;">Ahornweg 21, 5003 Bauma, Tel: 041 566 77 88</span>
+                    <td><span style="font-size: 65%;text-decoration: underline;"><%= bills.getMandant().get("strasse") %>, <%= bills.getMandant().get("ort") %>, <%= bills.getMandant().get("postleitzshl") %></span>
 
                         <br><br>
                         <%-- Zieladresse --%>
-                        Lieferadresse
+                        <%= bills.getAddress().get("firmenname") %><br>
+                        <%= bills.getAddress().get("name") %><br>
+                        <%= bills.getAddress().get("strasse") %><br>
+                        <%= bills.getAddress().get("postleitzahl") %> <%= bills.getAddress().get("ort") %><br>
 
                         <br><br><br><br><br>
 
@@ -51,9 +57,12 @@
 
                     <%-- Informationen zur Rechnung und Rechnungsadresse --%>
                     <td><span style="font-size: 100%;font-weight: bold;">
-                            Rechnungsnummer<br>
-                            Datum<br>
-                            Rechnungsadresse<br>
+                            <%= bills.getNumber()%><br><br>
+                            <%= bills.getDate()%><br><br>
+                            <%= bills.getCustomer().get("firmenname") %><br>
+                        <%= bills.getCustomer().get("name") %><br>
+                        <%= bills.getCustomer().get("strasse") %><br>
+                        <%= bills.getCustomer().get("postleitzahl") %> <%= bills.getAddress().get("ort") %><br>
                             </td>
                             </tr> 
                             <tr>
@@ -65,7 +74,8 @@
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
-                                <td>&nbsp;</td><td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr> 
                             <tr>
                                 <td>&nbsp;</td>
@@ -212,7 +222,14 @@
 
         </div>
 
-
-
+                <%--
+<%
+                }else{%>
+                 <h1>Leider wurden keine Daten gefunden</h1>
+<%}
+%>               <% }%>--%>
+            <form action="index.jsp">
+            <button type="submit">Zurück</button>
+            </form>
     </body>
 </html>

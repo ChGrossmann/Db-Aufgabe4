@@ -203,7 +203,7 @@ public class NewBill extends HttpServlet {
 
         // Daten an JSP Datei übergeben
         request.setAttribute("Bill", bill);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("showBill.jsp").forward(request, response);
 
     }
 }
