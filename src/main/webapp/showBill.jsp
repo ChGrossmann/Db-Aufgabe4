@@ -37,7 +37,7 @@
                 </tr> 
                 <tr>
                     <%-- Adresse der Firma --%>
-                    <td><span style="font-size: 65%;text-decoration: underline;"><%= bills.getMandant().get("strasse") %>, <%= bills.getMandant().get("ort") %>, <%= bills.getMandant().get("postleitzshl") %></span>
+                    <td><span style="font-size: 65%;text-decoration: underline;"><%= bills.getMandant().get("strasse") %>, <%= bills.getMandant().get("ort") %>, <%= bills.getMandant().get("postleitzahl") %></span>
 
                         <br><br>
                         <%-- Zieladresse --%>
