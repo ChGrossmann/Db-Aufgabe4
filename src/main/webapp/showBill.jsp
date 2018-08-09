@@ -19,7 +19,7 @@
 
     <body>
         <% if (request.getAttribute("Bill") != null) {%>
-<%  Bill bills = (Bill) request.getAttribute("Bill");%>   
+        <%  Bill bills = (Bill) request.getAttribute("Bill");%>   
 
         <div style="background-color: white; font-size: 72.5%; font-family: Helvetica, sans-serif; float:left; ">
             <table cellspacing="0" cellpadding="0" border="0" width="100%" style=" border: 1px solid #000" >
@@ -268,7 +268,7 @@
 <%}
 %>               
             <form action="index.jsp">
-            <button type="submit">Zurück</button>
+            <button type="submit">Rechnung erfassen</button>
             </form>
     </body>
 </html>

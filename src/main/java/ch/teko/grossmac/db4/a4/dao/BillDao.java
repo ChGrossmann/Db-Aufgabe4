@@ -4,6 +4,7 @@ import ch.teko.grossmac.db4.a4.beans.Bill;
 import java.util.ArrayList;
 
 import java.util.GregorianCalendar;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -194,7 +195,6 @@ public class BillDao {
         return bill;
 
         
-//        return bill;
     }
 
         
@@ -304,7 +304,15 @@ public class BillDao {
     }
     
     
-    
+   public List<Document> searchBill(){
+       
+       conn.connection("bill");
+       
+       ArrayList<Document> listBill = conn.mdbCollection.find().into(new ArrayList<Document>());
+       
+       
+       return listBill;
+   }; 
     
     
     
