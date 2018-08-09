@@ -22,7 +22,7 @@ public class BillDao {
     DBConnection conn = new DBConnection();
         /**
          * Mit createBill werden alle Daten erstellt um eine Rechnung zu erstellen.
-         * @param rechnugsnummer
+         * @param rechnungsnummer
          * @param rechnung_firma
          * @param rechnung_name
          * @param rechnung_strasse
@@ -72,7 +72,7 @@ public class BillDao {
          * @return 
          */
         public Document createBill(
-                int rechnugsnummer,
+                int rechnungsnummer,
                 
                 String rechnung_firma, 
                 String rechnung_name, 
@@ -135,7 +135,7 @@ public class BillDao {
         
 
         Document bill = new Document();
-        bill.append("nummer", rechnugsnummer);
+        bill.append("rechnungsnummer", rechnungsnummer);
         bill.append("datum", new GregorianCalendar().getTime());
         bill.append("mandant", erstelleMandant(rechnung_firma, 
                  rechnung_name, 
@@ -195,9 +195,11 @@ public class BillDao {
         bill.append("danke", "Vielen Dank für die Bestellung");
         
         conn.mdbCollection.insertOne(bill);
-
         
         return bill;
+
+        
+//        return bill;
     }
 
         

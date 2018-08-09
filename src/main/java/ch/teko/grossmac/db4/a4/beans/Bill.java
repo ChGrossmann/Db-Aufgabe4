@@ -8,9 +8,9 @@ import org.bson.Document;
 public class Bill {
 
        
-    private String number;
-    private String date;
-    private Document mandat;
+    private int number;
+    private Date date;
+    private Document mandant;
     private Document customer;
     private Document address;
     private double priceTotal;
@@ -24,10 +24,10 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(String number, String date, Document mandat, Document customer, Document address, double priceTotal, String comment, double mwst, String zahlungsbedingung, String danke, List<Product> positionen) {
+    public Bill(int number, Date date, Document mandant, Document customer, Document address, double priceTotal, String comment, double mwst, String zahlungsbedingung, String danke, List<Product> positionen) {
         this.number = number;
         this.date = date;
-        this.mandat = mandat;
+        this.mandant = mandant;
         this.customer = customer;
         this.address = address;
         this.priceTotal = priceTotal;
@@ -38,28 +38,28 @@ public class Bill {
         this.positionen = positionen;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public Document getMandat() {
-        return mandat;
+    public Document getMandant() {
+        return mandant;
     }
 
-    public void setMandat(Document mandat) {
-        this.mandat = mandat;
+    public void setMandant(Document mandant) {
+        this.mandant = mandant;
     }
 
     public Document getCustomer() {
