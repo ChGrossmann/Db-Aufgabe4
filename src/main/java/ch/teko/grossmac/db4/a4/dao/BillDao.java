@@ -1,22 +1,17 @@
 package ch.teko.grossmac.db4.a4.dao;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import ch.teko.grossmac.db4.a4.beans.Bill;
 import java.util.ArrayList;
-import java.util.List;
 
 import java.util.GregorianCalendar;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 
 /**
  * In der BillDao Klasse werden die Daten die von NewBill übergeben werden in die Datenbank eingespiesen.
  * @author ch.grossmann
  */
 public class BillDao {
-               
+    Bill billObject = new Bill();           
                         
 
     DBConnection conn = new DBConnection();
@@ -190,9 +185,9 @@ public class BillDao {
 
         bill.append("bemerkung", bemerkung);
         
-        bill.append("mwstsatz", 0.077);
-        bill.append("zahlungsbedingung", "zahlbar innert 30 Tage netto");
-        bill.append("danke", "Vielen Dank für die Bestellung");
+        bill.append("mwstsatz", billObject.getMwst());
+        bill.append("zahlungsbedingung", billObject.getZahlungsbedingung());
+        bill.append("danke", billObject.getDanke());
         
         conn.mdbCollection.insertOne(bill);
         

@@ -15,9 +15,9 @@ public class Bill {
     private Document address;
     private double priceTotal;
     private String comment;
-    private double mwst;
-    private String zahlungsbedingung;
-    private String danke;
+    private double mwst = 7.7;
+    private String zahlungsbedingung = "Zahlbar innert 30 Tagen.";
+    private String danke = "Vielen Dank für die Bestellung";
 
     private List<Product> positionen;
 

@@ -77,7 +77,7 @@
 
                 <tr>
                     <td>
-                        Position
+                        &nbsp;
                     </td>
                     <td>
                         Artikelnummer
@@ -103,7 +103,7 @@
                 <%-- 1 --%>
                 <tr>
                     <td>
-                        1
+                        &nbsp;
                     </td>
                     <td>
                         <input type="number" name="1_artikelnummer" placeholder="1" value="1"/>
@@ -132,7 +132,7 @@
                 <%-- 2 --%>
                 <tr>
                     <td>
-                        2
+                        &nbsp;
                     </td>
                     <td>
                         <input type="number" name="2_artikelnummer" placeholder="2" value="2"/>
@@ -161,7 +161,7 @@
                 <%-- 3 --%>
                 <tr>
                     <td>
-                        3
+                        &nbsp;
                     </td>
                     <td>
                         <input type="number" name="3_artikelnummer" placeholder="2" value="2"/>
@@ -190,7 +190,7 @@
                 <%-- 4 --%>
                 <tr>
                     <td>
-                        4
+                        &nbsp;
                     </td>
                     <td>
                         <input type="number" name="4_artikelnummer" placeholder="2" value="2"/>
@@ -219,7 +219,7 @@
                 <%-- 5 --%>
                 <tr>
                     <td>
-                        5
+                        &nbsp;
                     </td>
                     <td>
                         <input type="number" name="5_artikelnummer" placeholder="2" value="2"/>
@@ -257,41 +257,15 @@
 
             </table>
 
-            <input type="submit" value="Erfassen" style="color: green; font-size: 200%;" />
+            <input type="submit" value="Erfassen" style="color: green; font-size: 100%;" />
         </form> <br><br>
 
 
+        <form action="listBill.jsp">
+            <button type="submit" style="color: green; font-size: 100%;">Rechnung auflisten</button>
+            </form>
 
-        <% if (request.getAttribute("Bill") != null) {%>
-        <h1>Resultat</h1>
-        <div>
 
-            <table border="1">
-                <tr>
-                    <th width="70" >Artikelnummer</th>
-                    <th width="200">Bezeichnung</th>
-                    <th width="30">Menge</th>
-                    <th width="40">Einheit</th>
-                    <th width="30">Preis</th>
-                </tr>
-                <%  Bill bills = (Bill) request.getAttribute("Bill");
-                    
-                %>
-                <tr>
-
-                    <td width="70" ><%= bills.getNumber()%></td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-
-                </tr>
-                
-
-            </table>
-            <%
-                }
-            %>
 
 
     </body>
