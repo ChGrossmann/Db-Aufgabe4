@@ -16,6 +16,8 @@ public class BillDao {
                         
 
     DBConnection conn = new DBConnection();
+    
+    
         /**
          * Mit createBill werden alle Daten erstellt um eine Rechnung zu erstellen.
          * @param rechnungsnummer
@@ -308,11 +310,12 @@ public class BillDao {
        
        conn.connection("bill");
        
-       ArrayList<Document> listBill = conn.mdbCollection.find().into(new ArrayList<Document>());
+       
+       List<Document> listBill = conn.mdbCollection.find().into(new ArrayList<Document>());
        
        
        return listBill;
-   }; 
+   }
     
     
     
@@ -515,7 +518,7 @@ public class BillDao {
         conn.connection("bill");
         
         Bson filter = new Document("rechnungsnummer", searchRechnungsnummer);
-        List<Document> searchBillNr = conn.mdbCollection.find(filter).into(new ArrayList<Document>());
+        List<Document> searchBillNr = conn.mdbCollection.find().into(new ArrayList<Document>());
 
         for (Document d : searchBillNr) {
             System.out.println(d.toJson());

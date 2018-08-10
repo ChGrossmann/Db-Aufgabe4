@@ -47,6 +47,8 @@ public class SearchBill extends HttpServlet {
         ArrayList<Bill> listBill = new ArrayList<>();
         
         for(Document d : bills){
+            
+            
         //Bean Bill abfüllen
         Bill bill = new Bill();
 
