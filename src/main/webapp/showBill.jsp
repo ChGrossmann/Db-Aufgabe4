@@ -226,7 +226,7 @@
                     <td colspan="3"></td>  
                     <td align="left"><strong>Total inkl. MwSt</strong></td> 
                     <td>&nbsp;</td>
-                    <td><strong><%= subtotal + subtotalMwst %></strong></td>
+                    <td><strong><%= (subtotal + subtotalMwst) %></strong></td>
                 </tr>
 
                 <%-- Linie unter Total --%>
