@@ -268,7 +268,7 @@
 <%}
 %>               
             <form action="index.jsp">
-            <button type="submit">Rechnung erfassen</button>
+            <button type="submit" style="color: green; font-size: 100%;">Rechnung erfassen</button>
             </form>
     </body>
 </html>

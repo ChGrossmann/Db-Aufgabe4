@@ -133,7 +133,7 @@ public class BillDao {
         
 
         Document bill = new Document();
-        bill.append("rechnungsnummer", rechnungsnummer);
+        bill.append("rechnungsnummer",rechnungsnummer);
         bill.append("datum", new GregorianCalendar().getTime());
         bill.append("mandant", erstelleMandant(rechnung_firma, 
                  rechnung_name, 

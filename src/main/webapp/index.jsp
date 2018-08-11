@@ -190,26 +190,26 @@
                         &nbsp;
                     </td>
                     <td>
-                        <input type="number" name="4_artikelnummer" placeholder="2" value="2"/>
+                        <input type="number" name="4_artikelnummer" placeholder="2" value="0"/>
                     </td>
                     <td>
-                        <input type="text" name="4_bezeichnung" placeholder="a" value="a"/>
+                        <input type="text" name="4_bezeichnung" placeholder="a" value="."/>
                     </td>
                     <td>
-                        <input type="text" name="4_farbe" placeholder="a" value="a"/>
+                        <input type="text" name="4_farbe" placeholder="a" value="."/>
                     </td>
                     <td>
-                        <input type="number" name="4_anzahl" placeholder="2" value="2"/>
+                        <input type="number" name="4_anzahl" placeholder="2" value="0"/>
                     </td>
                     <td>
                         <select name="4_einheit">
-                            <option  placeholder="a" ></option>
+                            <option  value="." ></option>
                             <option  value="stück">Stück</option>
                             <option value="bund" >Bund</option>
                         </select>
                     </td>
                     <td>
-                        <input type="number" step="0.1" name="4_preis" placeholder="2" value="2"/>
+                        <input type="number" step="0.1" name="4_preis" placeholder="2" value="0"/>
                     </td>
                 </tr>
 
@@ -219,25 +219,25 @@
                         &nbsp;
                     </td>
                     <td>
-                        <input type="number" name="5_artikelnummer" placeholder="2" value="2"/>
+                        <input type="number" name="5_artikelnummer" placeholder="2" value="0"/>
                     </td>
                     <td>
-                        <input type="text" name="5_bezeichnung" placeholder="a" value="a"/>
+                        <input type="text" name="5_bezeichnung" placeholder="a" value="."/>
                     </td>
                     <td>
-                        <input type="text" name="5_farbe" placeholder="a" value="a"/>
+                        <input type="text" name="5_farbe" placeholder="a" value="."/>
                     </td>
                     <td>
-                        <input type="number" name="5_anzahl" placeholder="2" value="2"/>
+                        <input type="number" name="5_anzahl" placeholder="2" value="0"/>
                     <td>
                         <select name="5_einheit">
-                            <option  placeholder="a"></option>
+                            <option  value="."></option>
                             <option  value="stück">Stück</option>
                             <option value="bund" >Bund</option>
                         </select>
                     </td>
                     <td>
-                        <input type="number" step="0.1" name="5_preis" placeholder="2" value="2"/>
+                        <input type="number" step="0.1" name="5_preis" placeholder="2" value="0"/>
                     </td>
                 </tr>
 
@@ -247,7 +247,7 @@
                         Bemerkung
                     </td>
                     <td colspan="6">
-                        <br><textarea name="bemerkung" rows="10" cols="90" placeholder="a" value="a"></textarea>
+                        <br><textarea name="bemerkung" rows="10" cols="90" placeholder="a" value="."></textarea>
                     </td>
                 </tr>
 
