@@ -261,9 +261,9 @@
         <form action="listBill.jsp">
             <button type="submit" style="color: green; font-size: 100%;">Rechnung auflisten</button>
         </form>
-        
-        <form action="ShowBill">
-            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+
+        <form action="ShowBill2">
+            <input type="number" name="billNr" value="1"/>
             <input type="submit" value="Rechnung Anzeigen" />
         </form>
 

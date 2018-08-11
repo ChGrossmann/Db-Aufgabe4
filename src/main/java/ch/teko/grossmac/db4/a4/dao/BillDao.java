@@ -133,7 +133,7 @@ public class BillDao {
         
 
         Document bill = new Document();
-        bill.append("rechnungsnummer",rechnungsnummer);
+        bill.append("rechnungsnummer", rechnungsnummer);
         bill.append("datum", new GregorianCalendar().getTime());
         bill.append("mandant", erstelleMandant(rechnung_firma, 
                  rechnung_name, 
@@ -317,13 +317,13 @@ public class BillDao {
        return listBill;
    }
    
-   public Document searchBillNr(int billNr){
+   public List<Document> searchBillNr(int billNr){
        
        conn.connection("bill");
        
        Document filter = new Document("rechnungsnummer", billNr);
        
-       Document bill = (Document) conn.mdbCollection.find(filter);
+       List<Document> bill = conn.mdbCollection.find(filter).into(new ArrayList<Document>());
        
        
        return bill;

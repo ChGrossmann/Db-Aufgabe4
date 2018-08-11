@@ -35,19 +35,19 @@ public class UpdateBill extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        int billNumber = (Integer) request.getAttribute("billNr");
-        
-       BillDao billDao = new BillDao();
-       DocumentToBill dtb = new DocumentToBill();
-       Bill bill = dtb.documentToBill(billDao.searchBillNr(billNumber));
-       
-        
-        
-        // Daten an JSP Datei übergeben
-        request.setAttribute("Bill", bill);
-        request.getRequestDispatcher("showBill.jsp").forward(request, response);
-        
+//        
+//        int billNumber = (Integer) request.getAttribute("billNr");
+//        
+//       BillDao billDao = new BillDao();
+//       DocumentToBill dtb = new DocumentToBill();
+////       Bill bill = dtb.documentToBill(billDao.searchBillNr(billNumber));
+//       
+//        
+//        
+//        // Daten an JSP Datei übergeben
+//        request.setAttribute("Bill", bill);
+//        request.getRequestDispatcher("showBill.jsp").forward(request, response);
+//        
        
        }
 

@@ -52,7 +52,7 @@
         </table>
             
           <% }  %>
-                    <form action="ShowBill">
+                    <form action="ShowBill2">
                         <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
                         <input type="submit" value="Rechnung Anzeigen" />
                     </form>
