@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>NewBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.NewBill</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewBill</servlet-name>
+        <url-pattern>/NewBill</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SearchBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.SearchBill</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchBill</servlet-name>
+        <url-pattern>/SearchBill</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ShowBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.ShowBill</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowBill</servlet-name>
+        <url-pattern>/ShowBill</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.UpdateBill</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateBill</servlet-name>
+        <url-pattern>/UpdateBill</url-pattern>
+    </servlet-mapping>
+    
+   
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

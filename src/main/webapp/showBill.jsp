@@ -4,9 +4,9 @@
     Author     : ch.grossmann
 --%>
 
-<%@page import="ch.teko.grossmac.db4.a4.beans.Product"%>
+
 <%@page import="java.util.ArrayList"%>
-<%@page import="org.bson.Document"%>
+<%@page import="ch.teko.grossmac.db4.a4.beans.Product"%>
 <%@page import="ch.teko.grossmac.db4.a4.beans.Bill"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

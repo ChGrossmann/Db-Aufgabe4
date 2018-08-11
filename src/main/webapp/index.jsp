@@ -1,9 +1,6 @@
 
 
-<%@page import="java.util.List"%>
-<%@page import="org.bson.Document"%>
-<%@page import="ch.teko.grossmac.db4.a4.beans.Bill"%>
-<%@page import="java.util.ArrayList"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -263,8 +260,12 @@
 
         <form action="listBill.jsp">
             <button type="submit" style="color: green; font-size: 100%;">Rechnung auflisten</button>
-            </form>
-
+        </form>
+        
+        <form action="ShowBill">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Anzeigen" />
+        </form>
 
 
 

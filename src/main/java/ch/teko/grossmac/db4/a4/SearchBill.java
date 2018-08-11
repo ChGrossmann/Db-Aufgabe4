@@ -8,16 +8,10 @@ package ch.teko.grossmac.db4.a4;
 import ch.teko.grossmac.db4.a4.beans.Bill;
 import ch.teko.grossmac.db4.a4.beans.Product;
 import ch.teko.grossmac.db4.a4.dao.BillDao;
-import ch.teko.grossmac.db4.a4.dao.DBConnection;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,13 +21,12 @@ import org.bson.Document;
  *
  * @author ch.grossmann
  */
-@WebServlet(name = "SearchBill", urlPatterns = {"/SearchBill"})
 public class SearchBill extends HttpServlet {
     
 
     
      @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
      
         
@@ -146,8 +139,8 @@ public class SearchBill extends HttpServlet {
         
         
         
-        req.setAttribute("ListBill", listBill);
-        req.getRequestDispatcher("listBill.jsp").forward(req, resp);
+        request.setAttribute("ListBill", listBill);
+        request.getRequestDispatcher("listBill.jsp").forward(request, response);
         
         
        

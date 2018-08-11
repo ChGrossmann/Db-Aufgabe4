@@ -14,10 +14,7 @@ import static com.mongodb.client.model.Filters.gte;
 import com.mongodb.client.model.UpdateOptions;
 import static com.mongodb.client.model.Updates.inc;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +24,6 @@ import org.bson.Document;
  *
  * @author ch.grossmann
  */
-@WebServlet(name = "UpdateRechnung", urlPatterns = {"/UpdateRechnung"})
 public class UpdateBill extends HttpServlet {
 
     

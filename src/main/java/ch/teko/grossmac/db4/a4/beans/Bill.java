@@ -1,7 +1,6 @@
 package ch.teko.grossmac.db4.a4.beans;
 
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import org.bson.Document;
 
@@ -24,7 +23,9 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(int number, Date date, Document mandant, Document customer, Document address, double priceTotal, String comment, double mwst, String zahlungsbedingung, String danke, List<Product> positionen) {
+    public Bill(int number, Date date, Document mandant, Document customer, 
+            Document address, double priceTotal, String comment, double mwst, 
+            String zahlungsbedingung, String danke, List<Product> positionen) {
         this.number = number;
         this.date = date;
         this.mandant = mandant;

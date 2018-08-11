@@ -4,8 +4,6 @@
     Author     : ch.grossmann
 --%>
 
-<%@page import="org.bson.Document"%>
-<%@page import="ch.teko.grossmac.db4.a4.SearchBill"%>
 <%@page import="ch.teko.grossmac.db4.a4.beans.Bill"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -53,18 +51,18 @@
             
         </table>
             
-          
+          <% }  %>
                     <form action="ShowBill">
-                        <input type="number" placeholder="Rechnungsnummer"/>
-                        <button type="submit" >Rechnung Anzeigen</button >
+                        <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+                        <input type="submit" value="Rechnung Anzeigen" />
                     </form>
                 
                     <form action="UpdateBill">
-                        <input type="number" placeholder="Rechnungsnummer"/>
-                        <button type="submit">Rechnung Ändern</button >
+                        <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+                        <input type="submit" value="Rechnung Ändern" />
                     </form>
                 
-      <% }  %>
+      
         <form action="index.jsp">
             <button type="submit">Rechnung erfassen</button>
             </form>
