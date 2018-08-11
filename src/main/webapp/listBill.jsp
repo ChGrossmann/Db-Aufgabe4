@@ -29,137 +29,41 @@
                 <th>&nbsp;</th>
                 <th>Rechnungsnummer</th>
                 <th>Kunde</th>
-                <th>&nbsp;</th>
-                <th>&nbsp;</th>
+                <th>Anzeigen</th>
+                <th>Ändern</th>
             </tr>
 
             <% ArrayList<Bill> bills = (ArrayList<Bill>) request.getAttribute("ListBill");%> 
             
-
-            <% Bill bill0 = bills.get(0); %>
-            <tr>
-                
-                <td>&nbsp;</td>
-                <td><%= bill0.getNumber()%></td>
-                <td><%= bill0.getCustomer().get("firmenname")%></td>
-
-                <td>
-                    <form action="ShowBill">
-                        <input type="submit" name="anzeigen" value="Anzeigen" />
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" onclick=""/>
-                    </form>
-                </td>
-            </tr>
+            <%int billInt = bills.size();%>
             
-            <% Bill bill1 = bills.get(0); %>
-            <tr>
-                
-                <td>&nbsp;</td>
-                <td><%= bill1.getNumber()%></td>
-                <td><%= bill1.getCustomer().get("firmenname")%></td>
-
-                <td>
-                    <form action="ShowBill">
-                        
-                        <input type="submit" name="anzeigen" value="Anzeigen" />
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" onclick=""/>
-                    </form>
-                </td>
-            </tr>
-           
-            <% Bill bill2 = bills.get(1); %>
-            <tr>
-                
-                <td>&nbsp;</td>
-                <td><%= bill2.getNumber()%></td>
-                <td><%= bill2.getCustomer().get("firmenname")%></td>
-
-                <td>
-                    <form action="ShowBill">
-                        <input type="submit" name="anzeigen" value="Anzeigen" />
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" />
-                    </form>
-                </td>
-            </tr>
+            <% for(int i = 1; billInt >= i; i++){%>
             
-            <% Bill bill3 = bills.get(2); %>
+            <% Bill bill = bills.get(i-1); %>
             <tr>
                 
                 <td>&nbsp;</td>
-                <td><%= bill3.getNumber()%></td>
-                <td><%= bill3.getCustomer().get("firmenname")%></td>
+                <td><%= bill.getNumber()%></td>
+                <td><%= bill.getCustomer().get("firmenname")%></td>
 
-                <td>
-                    <form action="ShowBill">
-                        <input type="submit" name="anzeigen" value="Anzeigen" />
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" />
-                    </form>
-                </td>
-            </tr>
-            
-            <% Bill bill4 = bills.get(3); %>
-            <tr>
                 
-                <td>&nbsp;</td>
-                <td><%= bill4.getNumber()%></td>
-                <td><%= bill4.getCustomer().get("firmenname")%></td>
-
-                <td>
-                    <form action="ShowBill">
-                        <input type="submit" name="anzeigen" value="Anzeigen" />
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" />
-                    </form>
-                </td>
-            </tr>
             
-            <% Bill bill5 = bills.get(4); %>
-            <tr>
-                
-                <td>&nbsp;</td>
-                <td><%= bill5.getNumber()%></td>
-                <td><%= bill5.getCustomer().get("firmenname")%></td>
-
-                <td>
-                    <form action="ShowBill">
-                        <input type="submit" name="anzeigen" value="Anzeigen"/>
-                    </form>
-                </td>
-
-                <td>
-                    <form action="UpdateBill">
-                        <input type="submit" name="ändern"value="Ändern" />
-                    </form>
-                </td>
-            </tr>
-            
-           
+            <%};%>
+         
             
         </table>
+            
+          
+                    <form action="ShowBill">
+                        <input type="number" placeholder="Rechnungsnummer"/>
+                        <button type="submit" >Rechnung Anzeigen</button >
+                    </form>
+                
+                    <form action="UpdateBill">
+                        <input type="number" placeholder="Rechnungsnummer"/>
+                        <button type="submit">Rechnung Ändern</button >
+                    </form>
+                
       <% }  %>
         <form action="index.jsp">
             <button type="submit">Rechnung erfassen</button>

@@ -316,6 +316,18 @@ public class BillDao {
        
        return listBill;
    }
+   
+   public Document searchBillNr(int billNr){
+       
+       conn.connection("bill");
+       
+       Document filter = new Document("rechnungsnummer", billNr);
+       
+       Document bill = (Document) conn.mdbCollection.find(filter);
+       
+       
+       return bill;
+   }
     
     
     

@@ -6,13 +6,14 @@
 package ch.teko.grossmac.db4.a4;
 
 import ch.teko.grossmac.db4.a4.beans.Bill;
+import ch.teko.grossmac.db4.a4.dao.BillDao;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.bson.Document;
 
 /**
  *
@@ -25,8 +26,11 @@ public class ShowBill extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Bill bill = (Bill) request.getAttribute("anzeigen");
+       int billNumber = (Integer) request.getAttribute("anzeigen");
         
+       BillDao billDao = new BillDao();
+       DocumentToBill dtb = new DocumentToBill();
+       Bill bill = dtb.documentToBill(billDao.searchBillNr(billNumber));
        
         
         
