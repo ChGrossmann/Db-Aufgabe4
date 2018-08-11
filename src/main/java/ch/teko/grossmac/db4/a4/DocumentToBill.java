@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import org.bson.Document;
 
 /**
- *
+ *DocumentToBill übernimmt die Umwandlung einer Rechnung aus der DB vom Document zum Bill
  * @author ch.grossmann
  */
 public class DocumentToBill {

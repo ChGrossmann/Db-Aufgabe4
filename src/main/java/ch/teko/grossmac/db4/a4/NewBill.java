@@ -16,7 +16,8 @@ import org.bson.Document;
 
 /**
  * In NewBill werden die Parameter der Website abgefangen und weiter geschickt
- * via dao.createBill .
+ * via dao.createBill.
+ * Das Document newbill wir mit Hilfe von documentToBill umgewandelt.
  *
  * @author ch.grossmann
  */
@@ -94,7 +95,9 @@ public class NewBill extends HttpServlet {
         //Bemerkung
         String bemerkung = request.getParameter("bemerkung");
 
-        // DAO Layer aufrufen
+        /**
+         * Übergabe an das Dao
+         */
         BillDao dao = new BillDao();
         Document newBill = dao.createBill(rechnungsnummer, rechnung_firma, rechnung_name, rechnung_strasse, rechnung_plz, rechnung_ort, kunde_firma,
                 kunde_name, kunde_strasse, kunde_plz, kunde_ort, liefer_firma, liefer_name, liefer_strasse, liefer_plz, liefer_ort, new_1_artikelnummer,
@@ -104,7 +107,9 @@ public class NewBill extends HttpServlet {
                 new_5_farbe, new_5_anzahl, new_5_einheit, new_5_preis, bemerkung);
 
         
-       
+       /**
+        * Umwandlung vom Document zum Bill
+        */
        DocumentToBill dtb = new DocumentToBill();
        Bill bill = dtb.documentToBill(newBill);
        

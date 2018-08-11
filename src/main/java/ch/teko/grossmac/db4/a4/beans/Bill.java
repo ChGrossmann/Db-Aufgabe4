@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 
+/**
+ * Die Bill Klasse wird als Bean verwendet für die Rechung.
+ * @author ch.grossmann
+ */
 public class Bill {
 
        

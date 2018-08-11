@@ -9,7 +9,14 @@ import java.util.List;
 import org.bson.Document;
 
 /**
- * In der BillDao Klasse werden die Daten die von NewBill übergeben werden in die Datenbank eingespiesen.
+ * In der BillDao Klasse werden alle operationen mit der Datenbank gemacht.
+ * 
+ * createBill
+ * updateBill
+ * searchBill
+ * searchBillNr
+ * deleteBillNr
+ * 
  * @author ch.grossmann
  */
 public class BillDao {
@@ -129,10 +136,14 @@ public class BillDao {
                 String bemerkung){
             
            
-
+        /**
+         * Hier wird die Verbindung zur Colletion bill erstellt.
+         */
         conn.connection("bill");
         
-
+        /**
+         * Hier werden alle Parameter zu einem Document zusammengeführt.
+         */
         Document bill = new Document();
         bill.append("rechnungsnummer", rechnungsnummer);
         bill.append("datum", new GregorianCalendar().getTime());
@@ -193,6 +204,9 @@ public class BillDao {
         bill.append("zahlungsbedingung", billObject.getZahlungsbedingung());
         bill.append("danke", billObject.getDanke());
         
+        /**
+         * Hier wird das vorbereitete Document in die Datenbank gespeichert.
+        */
         conn.mdbCollection.insertOne(bill);
         
         return bill;
@@ -311,12 +325,20 @@ public class BillDao {
                 String bemerkung){
             
            
-
+        /**
+         * Hier wird die Verbindung zur Colletion bill erstellt.
+         */
         conn.connection("bill");
         
+        /**
+         * Die Erstellung des filters für die Suche nach dem richtigen Eintrag.
+         */
         Document filter = new Document();
         filter.append("rechnungsnummer", rechnungsnummerAlt);
 
+        /**
+         * Hier werden alle Parameter zu einem Document zusammengeführt.
+         */
         Document billNew = new Document();
         billNew.append("rechnungsnummer", rechnungsnummer);
         billNew.append("datum", new GregorianCalendar().getTime());
@@ -387,7 +409,15 @@ public class BillDao {
         
     }
 
-        
+    /**
+     * Hier wird ein Mandant erstellt für die Rechnung.
+     * @param rechnung_firma
+     * @param rechnung_name
+     * @param rechnung_strasse
+     * @param rechnung_plz
+     * @param rechnung_ort
+     * @return 
+     */   
     private Document erstelleMandant(String rechnung_firma, 
                 String rechnung_name, 
                 String rechnung_strasse, 
@@ -403,6 +433,15 @@ public class BillDao {
         return doc;
     }
 
+    /**
+     * Hier wird der Kunde erstellt für die Rechnung.
+     * @param kunde_firma
+     * @param kunde_name
+     * @param kunde_strasse
+     * @param kunde_plz
+     * @param kunde_ort
+     * @return 
+     */
     private Document erstelleKunde(String kunde_firma,
                 String kunde_name, 
                 String kunde_strasse, 
@@ -418,6 +457,15 @@ public class BillDao {
         return doc;
     }
 
+    /**
+     * Hier wird die Lieferadresse für die Rechnung erstellt
+     * @param liefer_firma
+     * @param liefer_name
+     * @param liefer_strasse
+     * @param liefer_plz
+     * @param liefer_ort
+     * @return 
+     */
     private Document erstelleLieferadresse(String liefer_firma, 
                 String liefer_name, 
                 String liefer_strasse, 
@@ -432,6 +480,16 @@ public class BillDao {
         return doc;
     }
 
+    /**
+     * Hier wird ein Artikel erstellt für die Rechnung
+     * @param artikelNr
+     * @param beschreibung
+     * @param farbe
+     * @param menge
+     * @param einheit
+     * @param einzelpreis
+     * @return 
+     */
     private Document erstelleArtikel(int artikelNr, String beschreibung, 
             String farbe, int menge, String einheit, double einzelpreis) {
 
@@ -447,6 +505,40 @@ public class BillDao {
 
     }
 
+    /**
+     * Hier werden alle 5 Positionen erstellt für die Rechnung.
+     * @param new_1_artikelnummer
+     * @param new_1_bezeichnung
+     * @param new_1_farbe
+     * @param new_1_anzahl
+     * @param new_1_einheit
+     * @param new_1_preis
+     * @param new_2_artikelnummer
+     * @param new_2_bezeichnung
+     * @param new_2_farbe
+     * @param new_2_anzahl
+     * @param new_2_einheit
+     * @param new_2_preis
+     * @param new_3_artikelnummer
+     * @param new_3_bezeichnung
+     * @param new_3_farbe
+     * @param new_3_anzahl
+     * @param new_3_einheit
+     * @param new_3_preis
+     * @param new_4_artikelnummer
+     * @param new_4_bezeichnung
+     * @param new_4_farbe
+     * @param new_4_anzahl
+     * @param new_4_einheit
+     * @param new_4_preis
+     * @param new_5_artikelnummer
+     * @param new_5_bezeichnung
+     * @param new_5_farbe
+     * @param new_5_anzahl
+     * @param new_5_einheit
+     * @param new_5_preis
+     * @return 
+     */
     private ArrayList<Document> erstellePositionen(int new_1_artikelnummer, 
                 String new_1_bezeichnung, 
                 String new_1_farbe, 
@@ -482,6 +574,9 @@ public class BillDao {
                 String new_5_einheit, 
                 double new_5_preis) {
 
+        /**
+         * Die Positionen werden in eine ArrayList abgefüllt.
+         */
         ArrayList<Document> positionen = new ArrayList<>();
         positionen.add(erstelleArtikel(new_1_artikelnummer, new_1_bezeichnung, new_1_farbe, new_1_anzahl, new_1_einheit, new_1_preis));
         positionen.add(erstelleArtikel(new_2_artikelnummer, new_2_bezeichnung, new_2_farbe, new_2_anzahl, new_2_einheit, new_2_preis));
@@ -493,7 +588,10 @@ public class BillDao {
         return positionen;
     }
     
-    
+   /**
+    * Die Methode um alle(20) Rechnungen aud der Datenbank zu lesen und in eine ArrayList zu schreiben.
+    * @return 
+    */
    public List<Document> searchBill(){
        
        conn.connection("bill");
@@ -505,6 +603,11 @@ public class BillDao {
        return listBill;
    }
    
+   /**
+    * Die Methode um nach einer Rechnungsnummer zu suchen.
+    * @param billNr
+    * @return 
+    */
    public List<Document> searchBillNr(int billNr){
        
        conn.connection("bill");
@@ -517,6 +620,11 @@ public class BillDao {
        return bill;
    }
    
+   /**
+    * Die Methode um einen Eintrag zu löschen.
+    * @param billNr
+    * @return 
+    */
    public Document deleteBillNr(int billNr){
        
        conn.connection("bill");

@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
 
 /**
+ * In der ShowBill Klasse wird die Anzeigen funktion gemacht. Durch den
+ * Parameter billNr wird die Suche nach der bestimmten Rechnungsnummer in der
+ * Datenbank gemacht.
  *
  * @author ch.grossmann
  */
@@ -24,9 +27,15 @@ public class ShowBill2 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        /**
+         * Rechnungsnummer aus dem Parameter.
+         */
         int billNr = Integer.parseInt(request.getParameter("billNr"));
-
+        
+        /**
+         * Hier wird nach der Rechnungsnummer gesucht.
+         */
         BillDao billDao = new BillDao();
         DocumentToBill dtb = new DocumentToBill();
         List<Document> listBill = billDao.searchBillNr(billNr);

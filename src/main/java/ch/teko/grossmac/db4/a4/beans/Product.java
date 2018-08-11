@@ -6,7 +6,7 @@
 package ch.teko.grossmac.db4.a4.beans;
 
 /**
- *
+ * Die Product Klasse wird als Bean für die Artikel verwendet.
  * @author ch.grossmann
  */
 public class Product {

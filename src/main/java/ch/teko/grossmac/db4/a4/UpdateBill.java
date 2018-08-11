@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
 
 /**
- *
+ *In der UpdateBill Klasse wird durch den Parameter einer Rechnungsnummer diese gesucht um sie dann zu aktuallisieren.
  * @author ch.grossmann
  */
 public class UpdateBill extends HttpServlet {
@@ -26,8 +26,14 @@ public class UpdateBill extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        /**
+         * Rechnungsnummer Parameter
+         */
         int billNr = Integer.parseInt(request.getParameter("billNr"));
 
+        /**
+         * Hier wird nach der Rechnung gesucht.
+         */
         BillDao billDao = new BillDao();
         DocumentToBill dtb = new DocumentToBill();
         List<Document> listBill = billDao.searchBillNr(billNr);

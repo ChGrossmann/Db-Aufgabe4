@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
 
 /**
- *
+ *DeleteBill empfängt einen Parameter einer Rechnungsnummer um diese in der Datenbank zu suchen und löschen.
  * @author ch.grossmann
  */
 public class DeleteBill extends HttpServlet {
@@ -22,11 +22,17 @@ public class DeleteBill extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        /**
+         * erhaltener Parameter billNr
+         */
         int billNr = Integer.parseInt(request.getParameter("billNr"));
 
         BillDao billDao = new BillDao();
-
+        
+        /**
+         * Übergabe an die Methode deleteBillNr um im BillDao die Verbindung zur Db herzustellen.
+         */
         Document delBill = billDao.deleteBillNr(billNr);
 
         request.setAttribute("DeleteBill", delBill);
