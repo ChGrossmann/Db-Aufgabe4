@@ -23,14 +23,14 @@
         <% if (request.getAttribute("ListBill") != null) {%>
 
         <%--Hier werden die Rehcnungen Aufgeliestet falls welche vorhanden sind--%>
-        <table>
+        <table style=" border: 1px solid #000">
 
             <tr>
                 <th>&nbsp;</th>
                 <th>Rechnungsnummer</th>
                 <th>Kunde</th>
-                <th>Anzeigen</th>
-                <th>Ändern</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
             </tr>
 
             <% ArrayList<Bill> bills = (ArrayList<Bill>) request.getAttribute("ListBill");%> 
