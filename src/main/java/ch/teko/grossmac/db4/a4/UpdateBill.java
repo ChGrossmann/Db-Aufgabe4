@@ -7,16 +7,7 @@ package ch.teko.grossmac.db4.a4;
 
 import ch.teko.grossmac.db4.a4.beans.Bill;
 import ch.teko.grossmac.db4.a4.dao.BillDao;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.gte;
-import com.mongodb.client.model.UpdateOptions;
-import static com.mongodb.client.model.Updates.inc;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,20 +26,18 @@ public class UpdateBill extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//        
-//        int billNumber = (Integer) request.getAttribute("billNr");
-//        
-//       BillDao billDao = new BillDao();
-//       DocumentToBill dtb = new DocumentToBill();
-////       Bill bill = dtb.documentToBill(billDao.searchBillNr(billNumber));
-//       
-//        
-//        
-//        // Daten an JSP Datei übergeben
-//        request.setAttribute("Bill", bill);
-//        request.getRequestDispatcher("showBill.jsp").forward(request, response);
-//        
-       
+        int billNr = Integer.parseInt(request.getParameter("billNr"));
+
+        BillDao billDao = new BillDao();
+        DocumentToBill dtb = new DocumentToBill();
+        List<Document> listBill = billDao.searchBillNr(billNr);
+
+        Bill bill = dtb.documentToBill(listBill.get(0));
+
+        // Daten an JSP Datei übergeben
+        request.setAttribute("Bill", bill);
+        request.getRequestDispatcher("updateBill.jsp").forward(request, response);
+        
        }
 
         }

@@ -8,6 +8,14 @@
         <servlet-name>ShowBill2</servlet-name>
         <servlet-class>ch.teko.grossmac.db4.a4.ShowBill2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SaveUpdateBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.SaveUpdateBill</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteBill</servlet-name>
+        <servlet-class>ch.teko.grossmac.db4.a4.DeleteBill</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewBill</servlet-name>
         <url-pattern>/NewBill</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ShowBill2</servlet-name>
         <url-pattern>/ShowBill2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SaveUpdateBill</servlet-name>
+        <url-pattern>/SaveUpdateBill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteBill</servlet-name>
+        <url-pattern>/DeleteBill</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

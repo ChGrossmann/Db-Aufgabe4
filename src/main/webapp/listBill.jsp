@@ -18,9 +18,11 @@
 
         <form action="SearchBill">
             <input type="submit" value="Rechnungen auflisten">
-        </form>
+        </form><br>
 
         <% if (request.getAttribute("ListBill") != null) {%>
+
+        <%--Hier werden die Rehcnungen Aufgeliestet falls welche vorhanden sind--%>
         <table>
 
             <tr>
@@ -32,39 +34,48 @@
             </tr>
 
             <% ArrayList<Bill> bills = (ArrayList<Bill>) request.getAttribute("ListBill");%> 
-            
+
             <%int billInt = bills.size();%>
-            
-            <% for(int i = 1; billInt >= i; i++){%>
-            
-            <% Bill bill = bills.get(i-1); %>
+
+            <% for (int i = 1; billInt >= i; i++) {%>
+
+            <% Bill bill = bills.get(i - 1);%>
             <tr>
-                
+
                 <td>&nbsp;</td>
                 <td><%= bill.getNumber()%></td>
                 <td><%= bill.getCustomer().get("firmenname")%></td>
 
-                
-            
-            <%};%>
-         
-            
-        </table>
-            
-          <% }  %>
-                    <form action="ShowBill2">
-                        <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
-                        <input type="submit" value="Rechnung Anzeigen" />
-                    </form>
-                
-                    <form action="UpdateBill">
-                        <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
-                        <input type="submit" value="Rechnung Ändern" />
-                    </form>
-                
-      
+
+
+                <%};%>
+
+
+        </table><br><br>
+
+        <% }%>
+
+        <%-- Die Auswahlmöglichkeiten --%>
+
         <form action="index.jsp">
-            <button type="submit" style="color: green; font-size: 100%;">Rechnung erfassen</button>
-            </form>
+            <input type="submit" value="Rechnungen erfassen">
+        </form><br>
+
+        <form action="ShowBill2">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Anzeigen" />
+        </form>
+
+        <form action="UpdateBill">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Ändern" />
+        </form><br><br>
+
+        <form action="DeleteBill" >
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Löschen" style="color: red;"/>
+        </form><br><br>
+
+
     </body>
 </html>

@@ -22,7 +22,7 @@
         <% if (request.getAttribute("Bill") != null) {%>
         <%  Bill bill = (Bill) request.getAttribute("Bill");%> 
 
-        <form action="ShowBill">
+        <form action="SaveUpdateBill">
             <table style="width: 100%">
 
                 <%-- Rechnungsnummer --%>
@@ -59,7 +59,7 @@
                         Kunde
                     </td>
                     <td colspan="6">
-                        <input type="text" name="kunde_firma"  value="<%= bill.getCustomer().get("firnemname")%>"/><br>
+                        <input type="text" name="kunde_firma"  value="<%= bill.getCustomer().get("firmenname")%>"/><br>
                         <input type="text" name="kunde_name"  value="<%= bill.getCustomer().get("name")%>"/><br>
                         <input type="text" name="kunde_strasse"  value="<%= bill.getCustomer().get("strasse")%>"/><br>
                         <input type="number" name="kunde_plz"  value="<%= bill.getCustomer().get("postleitzahl")%>"/><br>
@@ -274,13 +274,28 @@
         <h1>Leider wurden keine Daten gefunden</h1>
         <%}
         %> 
+        
+        <%-- Die Auswahlmöglichkeiten --%>
 
-        <form action="listBill.jsp">
-            <button type="submit" style="color: green; font-size: 100%;">Rechnung auflisten</button>
+        <form action="SearchBill">
+            <input type="submit" value="Rechnungen auflisten">
         </form><br>
-
-        <form action="index.jsp">
-            <button type="submit" style="color: green; font-size: 100%;">Rechnung erfassen</button>
+        
+        <form action="ShowBill2">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Anzeigen" />
         </form>
+
+        <form action="UpdateBill">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Ändern" />
+        </form><br><br>
+
+        <form action="DeleteBill">
+            <input type="number" name="billNr" placeholder="Rechnungsnummer"/>
+            <input type="submit" value="Rechnung Löschen" style="color: red;"/>
+        </form><br><br>
+
+        
     </body>
 </html>

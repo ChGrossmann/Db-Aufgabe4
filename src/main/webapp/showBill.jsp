@@ -27,10 +27,10 @@
                     <%-- Titelbild der Firma --%>
                     <td width="5%">&nbsp;</td>
                     <td  width="20%" align="left"><img src="/Aufgabe4_Rechnungen/images/Logo.png" width="200" height="200" alt="Bild wurde nicht gefunden"><br><br></td>
-                    <td  width="47%" align="left" style="font-size: 400%; color: green"><%= bills.getMandant().get("firmenname") %></td>
+                    <td  width="47%" align="left" style="font-size: 400%; color: green"><%= bills.getMandant().get("firmenname")%></td>
                     <td width="3%" >&nbsp;</td>
                     <td width="25%">&nbsp;</td>
-                    
+
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -42,14 +42,14 @@
                 <tr>
                     <%-- Adresse der Firma --%>
                     <td>&nbsp;</td>
-                    <td><span style="font-size: 65%;text-decoration: underline;"><%= bills.getMandant().get("strasse") %>, <%= bills.getMandant().get("ort") %>, <%= bills.getMandant().get("postleitzahl") %></span>
+                    <td><span style="font-size: 65%;text-decoration: underline;"><%= bills.getMandant().get("strasse")%>, <%= bills.getMandant().get("ort")%>, <%= bills.getMandant().get("postleitzahl")%></span>
 
                         <br><br>
                         <%-- Zieladresse --%>
-                        <%= bills.getAddress().get("firmenname") %><br>
-                        <%= bills.getAddress().get("name") %><br>
-                        <%= bills.getAddress().get("strasse") %><br>
-                        <%= bills.getAddress().get("postleitzahl") %> <%= bills.getAddress().get("ort") %><br>
+                        <%= bills.getAddress().get("firmenname")%><br>
+                        <%= bills.getAddress().get("name")%><br>
+                        <%= bills.getAddress().get("strasse")%><br>
+                        <%= bills.getAddress().get("postleitzahl")%> <%= bills.getAddress().get("ort")%><br>
 
                         <br><br><br><br><br>
 
@@ -64,10 +64,10 @@
                     <td><span style="font-size: 100%;font-weight: bold;">
                             <%= bills.getNumber()%><br><br>
                             <%= bills.getDate()%><br><br>
-                            <%= bills.getCustomer().get("firmenname") %><br>
-                        <%= bills.getCustomer().get("name") %><br>
-                        <%= bills.getCustomer().get("strasse") %><br>
-                        <%= bills.getCustomer().get("postleitzahl") %> <%= bills.getCustomer().get("ort") %><br>
+                            <%= bills.getCustomer().get("firmenname")%><br>
+                            <%= bills.getCustomer().get("name")%><br>
+                            <%= bills.getCustomer().get("strasse")%><br>
+                            <%= bills.getCustomer().get("postleitzahl")%> <%= bills.getCustomer().get("ort")%><br>
                             </td>
                             </tr> 
                             <tr>
@@ -103,6 +103,7 @@
 
 
             <table width="100%" cellspacing="0" cellpadding="0" style="border: 1px solid #000">
+
                 <%-- Bezeichnungen der Column --%>
                 <tr>
                     <td width="5%" ><strong>&nbsp;</strong></td>
@@ -122,24 +123,26 @@
                     <td style="border-top: 0.5px solid #000;">&nbsp;</td>
                 </tr>
 
-                
+
                 <%  ArrayList<Product> products = (ArrayList) bills.getPositionen();
-                        for (Product p : products) {     
-                    %>
-                    
-                <%--Position 1--%>
+                    for (Product p : products) {
+                %>
+
+                <%--Positionen--%>
                 <tr>
                     <td>&nbsp;</td>    
                     <td>
-                        - <%= p.getArtikelNr() %><br>
-                        - <%= p.getBezeichung() %><br>
-                        - <%= p.getFarbe() %>
+                        - <%= p.getArtikelNr()%><br>
+                        - <%= p.getBezeichung()%><br>
+                        - <%= p.getFarbe()%>
                     </td>  
-                    <td><%= p.getAnzahl() %></td>
+                    <td><%= p.getAnzahl()%></td>
                     <td><%= p.getEinheit()%></td>
-                    <td><%= p.getPreis() %></td>
-                    <td><%= p.getAnzahl() * p.getPreis() %></td>
+                    <td><%= p.getPreis()%></td>
+                    <td><%= p.getAnzahl() * p.getPreis()%></td>
                 </tr>
+
+                <%-- Trennstrich --%>
                 <tr>
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
@@ -148,11 +151,11 @@
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
                 </tr> 
-               <% }; %>
-                
-                
+                <% }; %>
 
-                <%-- Linie unter Artikel --%>
+
+
+                <%-- Trennstrich --%>
                 <tr>
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
                     <td style="border-bottom: 0.5px solid #000;">&nbsp;</td>
@@ -170,28 +173,32 @@
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>                
                 </tr>
-<%  ArrayList<Product> price = (ArrayList) bills.getPositionen();
-                             
-                    %>
+
+
+                <%  ArrayList<Product> price = (ArrayList) bills.getPositionen();
+
+                %>
+
+                <%-- Berechnung des Total und MWst aus den Positionen--%>
                 <tr>    
                     <td colspan="3"></td>  
                     <td align="left">Subtotal</td>
                     <td>&nbsp;</td>
-                    <% double subtotal = price.get(0).getAnzahl()* price.get(0).getPreis() +
-                    price.get(1).getAnzahl()* price.get(1).getPreis() +
-                    price.get(2).getAnzahl()* price.get(2).getPreis() +
-                    price.get(3).getAnzahl()* price.get(3).getPreis() +
-                    price.get(4).getAnzahl()* price.get(4).getPreis(); %>
-                    <td><%= subtotal %></td>
+                    <% double subtotal = price.get(0).getAnzahl() * price.get(0).getPreis()
+                                + price.get(1).getAnzahl() * price.get(1).getPreis()
+                                + price.get(2).getAnzahl() * price.get(2).getPreis()
+                                + price.get(3).getAnzahl() * price.get(3).getPreis()
+                                + price.get(4).getAnzahl() * price.get(4).getPreis();%>
+                    <td><%= subtotal%></td>
 
                 </tr> 
                 <tr>
                     <td colspan="3"></td> 
                     <td align="left">MwSt</td>
                     <td>&nbsp;</td>
-                    <td><%= bills.getMwst() %></td>
+                    <td><%= bills.getMwst()%></td>
                 </tr>
-                <%-- Berechnung des Total und MWst --%> 
+
 
 
                 <%-- Linie unter Zwischentotal --%>
@@ -217,8 +224,8 @@
                     <td colspan="3"></td>  
                     <td align="left"><strong>Betrag MwSt</strong></td>
                     <td>&nbsp;</td>
-                    <% double subtotalMwst = subtotal /100 * bills.getMwst(); %>
-                    <td><%= subtotalMwst %></td>
+                    <% double subtotalMwst = subtotal / 100 * bills.getMwst();%>
+                    <td><%= subtotalMwst%></td>
 
                 </tr>
 
@@ -226,7 +233,7 @@
                     <td colspan="3"></td>  
                     <td align="left"><strong>Total inkl. MwSt</strong></td> 
                     <td>&nbsp;</td>
-                    <td><strong><%= (subtotal + subtotalMwst) %></strong></td>
+                    <td><strong><%= (subtotal + subtotalMwst)%></strong></td>
                 </tr>
 
                 <%-- Linie unter Total --%>
@@ -242,13 +249,15 @@
                 <tr>
                     <td colspan="6"><br><br></td>
                 </tr>
+
+                <%-- Bedingungen und Bemerkung --%>
                 <tr>	
                     <td>&nbsp;</td>				
-                    <td><%= bills.getComment() %></td>  
+                    <td><%= bills.getComment()%></td>  
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                    <td><%= bills.getZahlungsbedingung() %><br>
-                    <%= bills.getDanke()%></td>
+                    <td><%= bills.getZahlungsbedingung()%><br>
+                        <%= bills.getDanke()%></td>
                     <td>&nbsp;</td>
                 </tr> 
 
@@ -261,14 +270,15 @@
 
         </div>
 
-                
-<%
-                }else{%>
-                 <h1>Leider wurden keine Daten gefunden</h1>
-<%}
-%>               
-            <form action="index.jsp">
-            <button type="submit" style="color: green; font-size: 100%;">Rechnung erfassen</button>
-            </form>
+
+        <%
+        } else {%>
+        <h1>Leider wurden keine Daten gefunden</h1>
+        <%}
+        %>               
+        <br><br>
+        <form action="index.jsp">
+            <input type="submit" value="Rechnungen erfassen">
+        </form><br>
     </body>
 </html>

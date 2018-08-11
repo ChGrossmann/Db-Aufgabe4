@@ -1,14 +1,12 @@
-package ch.teko.grossmac.db4.a4;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import ch.teko.grossmac.db4.a4.beans.Bill;
+package ch.teko.grossmac.db4.a4;
+
 import ch.teko.grossmac.db4.a4.dao.BillDao;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +17,7 @@ import org.bson.Document;
  *
  * @author ch.grossmann
  */
-public class ShowBill2 extends HttpServlet {
+public class DeleteBill extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,14 +26,12 @@ public class ShowBill2 extends HttpServlet {
         int billNr = Integer.parseInt(request.getParameter("billNr"));
 
         BillDao billDao = new BillDao();
-        DocumentToBill dtb = new DocumentToBill();
-        List<Document> listBill = billDao.searchBillNr(billNr);
 
-        Bill bill = dtb.documentToBill(listBill.get(0));
+        Document delBill = billDao.deleteBillNr(billNr);
 
-        // Daten an JSP Datei übergeben
-        request.setAttribute("Bill", bill);
-        request.getRequestDispatcher("showBill.jsp").forward(request, response);
+        request.setAttribute("DeleteBill", delBill);
+        request.getRequestDispatcher("deleteBill.jsp").forward(request, response);
 
     }
+
 }
